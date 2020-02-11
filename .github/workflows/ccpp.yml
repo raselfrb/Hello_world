@@ -11,5 +11,7 @@ jobs:
     - uses: actions/checkout@v2
     - name: make
       run: make
- 
+ check: $(TARGET_BINARY)
+   @# Execute binary and verify output, it returns 0 (success) or 1 (fail)
+   [ "$$($(TARGET_BINARY))" = "Hello world!" ]
 
